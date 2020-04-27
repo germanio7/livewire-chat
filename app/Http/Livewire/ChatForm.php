@@ -15,7 +15,7 @@ class ChatForm extends Component
     public function mount()
     {
         $this->usuario = request()->query('usuario', auth()->user()->name);
-        $this->mensaje = $this->faker->realtext(20);
+        $this->mensaje = '';
     }
 
     public function updated($field)
