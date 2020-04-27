@@ -7,9 +7,7 @@ use Livewire\Component;
 
 class ChatList extends Component
 {
-    public $usuario;
     public $mensajes;
-    protected $ultimoId;
 
     protected $listeners = ['mensajeRecibido'];
 

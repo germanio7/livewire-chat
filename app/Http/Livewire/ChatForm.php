@@ -10,14 +10,12 @@ class ChatForm extends Component
 {
     public $usuario;
     public $mensaje;
-    private $faker;
     protected $updatesQueryString = ['usuario'];
 
     public function mount()
     {
-        $this->faker = \Faker\Factory::create();
         $this->usuario = request()->query('usuario', auth()->user()->name);
-        $this->mensaje = $this->faker->realtext(20);
+        $this->mensaje = '';
     }
 
     public function updated($field)
@@ -43,9 +41,6 @@ class ChatForm extends Component
         event(new EnviarMensaje());
 
         $this->emit('mensajeRecibido');
-
-        $this->faker = \Faker\Factory::create();
-        $this->mensaje = $this->faker->realtext(20);
     }
 
     public function render()
