@@ -15,7 +15,7 @@ class ChatForm extends Component
     public function mount()
     {
         $this->usuario = request()->query('usuario', auth()->user()->name);
-        $this->mensaje = '';
+        $this->mensaje = $this->faker->realtext(20);
     }
 
     public function updated($field)
@@ -40,7 +40,10 @@ class ChatForm extends Component
 
         event(new EnviarMensaje());
 
+        $this->emit('mensajeEnviado');
         $this->emit('mensajeRecibido');
+
+        $this->mensaje = '';
     }
 
     public function render()
