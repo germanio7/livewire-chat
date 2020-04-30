@@ -1,6 +1,11 @@
 <div class="mt-3">
 
-    <h3><strong>Últimos 5 mensajes</strong></h3>
+    <div class="flex">
+        <h3><strong>Últimos 5 mensajes</strong></h3>
+        <div wire:poll.5s="prueba">
+            <small class="text-muted">Ultima conexion: {{$conexion}}</small>
+        </div>
+    </div>
 
     <div class="card">
         <div class="card-body">
@@ -20,6 +25,7 @@
             </div>
             @endforeach
         </div>
+
     </div>
 
     <script>
@@ -37,5 +43,4 @@
             window.livewire.emit('mensajeRecibido', data);
         });
     </script>
-
 </div>
